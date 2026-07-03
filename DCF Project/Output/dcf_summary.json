@@ -1,0 +1,162 @@
+{
+  "wacc": 7.42,
+  "cost_of_equity": 7.8,
+  "after_tax_cost_of_debt": 4.35,
+  "weight_equity": 88.9,
+  "weight_debt": 11.1,
+  "forecast": [
+    {
+      "year": 2026,
+      "revenue": 194701.9,
+      "ebitda": 42834.4,
+      "da": 20443.7,
+      "ebit": 22390.7,
+      "nopat": 17688.7,
+      "capex": 17523.2,
+      "delta_nwc": 28.4,
+      "fcff": 20580.8,
+      "discount_factor": 0.9,
+      "pv_fcff": 19159.6
+    },
+    {
+      "year": 2027,
+      "revenue": 199569.5,
+      "ebitda": 44304.4,
+      "da": 20954.8,
+      "ebit": 23349.6,
+      "nopat": 18446.2,
+      "capex": 17961.3,
+      "delta_nwc": 24.3,
+      "fcff": 21415.4,
+      "discount_factor": 0.9,
+      "pv_fcff": 18559.9
+    },
+    {
+      "year": 2028,
+      "revenue": 204558.7,
+      "ebitda": 45821.2,
+      "da": 21478.7,
+      "ebit": 24342.5,
+      "nopat": 19230.6,
+      "capex": 18410.3,
+      "delta_nwc": 24.9,
+      "fcff": 22274.0,
+      "discount_factor": 0.8,
+      "pv_fcff": 17970.9
+    },
+    {
+      "year": 2029,
+      "revenue": 208649.9,
+      "ebitda": 46946.2,
+      "da": 21908.2,
+      "ebit": 25038.0,
+      "nopat": 19780.0,
+      "capex": 18778.5,
+      "delta_nwc": 20.5,
+      "fcff": 22889.3,
+      "discount_factor": 0.8,
+      "pv_fcff": 17192.1
+    },
+    {
+      "year": 2030,
+      "revenue": 212822.9,
+      "ebitda": 47885.1,
+      "da": 22346.4,
+      "ebit": 25538.7,
+      "nopat": 20175.6,
+      "capex": 19154.1,
+      "delta_nwc": 20.9,
+      "fcff": 23347.1,
+      "discount_factor": 0.7,
+      "pv_fcff": 16325.0
+    }
+  ],
+  "terminal_value_gg": 486627.0,
+  "terminal_value_exit": 551158.0,
+  "enterprise_value_gg": 429473.0,
+  "enterprise_value_exit": 474595.0,
+  "price_gg": 209.72,
+  "price_exit": 234.05,
+  "current_price": 202.5,
+  "wacc_range": [
+    6.42,
+    6.92,
+    7.42,
+    7.92,
+    8.42
+  ],
+  "tgr_range": [
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5
+  ],
+  "sensitivity": [
+    [
+      217.96,
+      240.55,
+      268.9,
+      305.55,
+      354.76
+    ],
+    [
+      195.72,
+      213.8,
+      235.96,
+      263.79,
+      299.75
+    ],
+    [
+      177.24,
+      191.98,
+      209.72,
+      231.48,
+      258.79
+    ],
+    [
+      161.64,
+      173.85,
+      188.32,
+      205.74,
+      227.1
+    ],
+    [
+      148.29,
+      158.55,
+      170.54,
+      184.75,
+      201.84
+    ]
+  ],
+  "historical": {
+    "revenue": {
+      "2021": 162465,
+      "2022": 246252,
+      "2023": 200949,
+      "2024": 202792,
+      "2025": 189031
+    },
+    "ebitda": {
+      "2022": 66509,
+      "2023": 47379,
+      "2024": 45382,
+      "2025": 41479
+    },
+    "net_income": {
+      "2022": 35465,
+      "2024": 17661
+    }
+  },
+  "market": {
+    "beta": 0.66,
+    "market_cap_usd_m": 375645,
+    "total_debt_usd_m": 46740,
+    "cash_usd_m": 6300,
+    "shares_outstanding_m": 1855,
+    "ev_ebitda_multiple": 11.51,
+    "current_ratio": 1.15,
+    "debt_to_equity": 0.24
+  },
+  "eia_context": "EIA STEO (mid-2026): near-term Brent ~$105/bbl on Strait of Hormuz disruption, normalizing to ~$79/bbl by 2027 as flows resume."
+}
