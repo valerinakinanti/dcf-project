@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Chevron (CVX) — Interactive DCF Valuation</title>
+<title>Chevron (CVX): Interactive DCF Valuation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Interactive discounted cash flow valuation of Chevron Corporation — scenario modeling, live sensitivity, and risk profile.">
+<meta name="description" content="Interactive discounted cash flow valuation of Chevron Corporation, with scenario modeling, live sensitivity, and a risk profile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -214,14 +214,14 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
 
   <div class="header-top">
     <div>
-      <p class="eyebrow">Equity Research — Interactive DCF</p>
+      <p class="eyebrow">Equity Research: Interactive DCF</p>
       <h1>Chevron Corporation (NYSE: CVX)</h1>
-      <p class="subtitle">Discounted cash flow valuation, FY2026–2030E. Real historical financials (MacroTrends, 10-K based) and market data as inputs, cross-checked with an exit-multiple method. Switch scenarios, drag the sliders, click a sensitivity cell — everything recalculates live.</p>
+      <p class="subtitle">Discounted cash flow valuation, FY2026–2030E. Real historical financials (MacroTrends, 10-K based) and market data as inputs, cross-checked with an exit-multiple method. Switch scenarios, drag the sliders, or click a sensitivity cell and everything recalculates live.</p>
     </div>
     <button class="share-btn" id="shareBtn">🔗 Copy link to this view</button>
   </div>
   <div class="meta-row">
-    <span>Sector: <b>Oil &amp; Gas — Integrated</b></span>
+    <span>Sector: <b>Oil &amp; Gas (Integrated)</b></span>
     <span>Base year: <b>FY2025A</b></span>
     <span>Method: <b>FCFF, Gordon Growth + Exit Multiple</b></span>
     <span>Current price: <b>$202.50</b></span>
@@ -229,10 +229,11 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
 
   <div class="scenario-row">
     <span class="scenario-label">Scenario</span>
-    <button class="pill" data-scenario="bear"><span class="dot"></span>Bear — oil normalizes fast</button>
+    <button class="pill" data-scenario="bear"><span class="dot"></span>Bear (oil normalizes fast)</button>
     <button class="pill active" data-scenario="base"><span class="dot"></span>Base case</button>
-    <button class="pill" data-scenario="bull"><span class="dot"></span>Bull — margin recovery</button>
+    <button class="pill" data-scenario="bull"><span class="dot"></span>Bull (margin recovery)</button>
   </div>
+  <p id="scenarioNote" style="font-size:12.5px;color:var(--text-secondary);margin:-16px 0 26px;max-width:700px;line-height:1.55;"></p>
 
   <div class="kpi-grid" id="kpiGrid"></div>
 
@@ -269,7 +270,7 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
   <!-- VALUATION -->
   <div class="tab-panel" id="panel-valuation">
     <section>
-      <div class="section-head"><div class="section-title">Live sensitivity — adjust WACC and terminal growth</div></div>
+      <div class="section-head"><div class="section-title">Live sensitivity: adjust WACC and terminal growth</div></div>
       <div class="live-panel">
         <div class="slider-row">
           <label>WACC</label>
@@ -313,7 +314,7 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
 
     <section>
       <div class="section-head">
-        <div class="section-title">Value bridge — EV to implied price</div>
+        <div class="section-title">Value bridge: EV to implied price</div>
         <div class="section-note">USD millions, at current sliders</div>
       </div>
       <div class="card">
@@ -326,7 +327,7 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
   <div class="tab-panel" id="panel-sensitivity">
     <section>
       <div class="section-head">
-        <div class="section-title">Sensitivity grid — implied share price</div>
+        <div class="section-title">Sensitivity grid: implied share price</div>
         <div class="section-note">rows: WACC · columns: terminal growth · click a cell to load it into the live panel</div>
       </div>
       <div class="card">
@@ -380,7 +381,7 @@ tbody td:first-child{text-align:left;padding:10px 8px;color:var(--text-muted);fo
   </div>
 
   <div class="footer">
-    FCFF = NOPAT + D&amp;A − Capex − ΔNWC, discounted at WACC. Scenario growth/margin paths are illustrative stress cases built around the EIA's projected Brent normalization (Strait of Hormuz disruption, ~$105/bbl near-term → ~$79/bbl by 2027) — the base case does not chase the spike; bear/bull bracket it.<br>
+    FCFF = NOPAT + D&amp;A − Capex − ΔNWC, discounted at WACC. Scenario growth/margin paths are illustrative stress cases built around the EIA's projected Brent normalization (Strait of Hormuz disruption, ~$105/bbl near-term, normalizing to ~$79/bbl by 2027). The base case does not chase the spike; the bear and bull scenarios bracket it.<br>
     Sources: MacroTrends, Stock Analysis on Net (10-K based), stockanalysis.com, FRED/Trading Economics (10Y UST), EIA STEO.
   </div>
 </div>
@@ -407,11 +408,11 @@ BASE.wacc = BASE.weightEquity * BASE.costOfEquity + BASE.weightDebt * BASE.after
 
 const SCENARIOS = {
   bear: { name:'Bear', color:'var(--critical)', growth:[0.005,0.005,0.010,0.010,0.010], margin:[0.195,0.198,0.200,0.202,0.205], defaultTgr:0.015,
-          note:'Strait of Hormuz disruption resolves faster than the EIA base case; Brent normalizes toward $79/bbl sooner, compressing near-term EBITDA margin.' },
+          note:'The Strait of Hormuz disruption resolves faster than the EIA base case. Brent normalizes toward $79/bbl sooner than expected, which compresses near-term EBITDA margin.' },
   base: { name:'Base', color:'var(--blue)', growth:[0.030,0.025,0.025,0.020,0.020], margin:[0.220,0.222,0.224,0.225,0.225], defaultTgr:0.025,
-          note:'Normalized 2–3% revenue growth off the FY2025 base, ~22% EBITDA margin — deliberately does not chase the near-term oil price spike.' },
+          note:'Revenue growth normalizes to 2–3% off the FY2025 base, with an EBITDA margin around 22%. This deliberately does not chase the near-term oil price spike.' },
   bull: { name:'Bull', color:'var(--good)', growth:[0.055,0.045,0.040,0.035,0.030], margin:[0.235,0.238,0.240,0.242,0.245], defaultTgr:0.035,
-          note:'Market continues awarding CVX its current EV/EBITDA multiple as EBITDA recovers, with capital discipline holding margins above trend.' },
+          note:'The market keeps awarding CVX its current EV/EBITDA multiple as EBITDA recovers, and capital discipline holds margins above trend.' },
 };
 
 const state = { scenario:'base', wacc: BASE.wacc, tgr: SCENARIOS.base.defaultTgr, donutMethod:'gg' };
@@ -515,7 +516,7 @@ function renderKpis(val){
       Weighted ${(BASE.weightEquity*100).toFixed(1)}% equity / ${(BASE.weightDebt*100).toFixed(1)}% debt by market value.</div>
     </div>
     <div class="kpi" data-kpi="gg">
-      <div class="kpi-label">Implied price — Gordon Growth <span class="chev">▾</span></div>
+      <div class="kpi-label">Implied price (Gordon Growth) <span class="chev">▾</span></div>
       <div class="kpi-value aqua">${fmtP(val.priceGG)}</div>
       <div class="kpi-sub"><span class="kpi-badge ${good?'good':'bad'}">${good?'▲':'▼'} ${pct(delta)} vs current</span></div>
       <div class="kpi-detail">EV = ΣPV(FCFF) + PV(terminal value)<br>
@@ -524,7 +525,7 @@ function renderKpis(val){
       Price = Equity ÷ ${BASE.shares}M shares</div>
     </div>
     <div class="kpi" data-kpi="exit">
-      <div class="kpi-label">Implied price — Exit multiple <span class="chev">▾</span></div>
+      <div class="kpi-label">Implied price (Exit multiple) <span class="chev">▾</span></div>
       <div class="kpi-value violet">${fmtP(val.priceExit)}</div>
       <div class="kpi-sub">${BASE.evEbitdaMultiple}x terminal EBITDA</div>
       <div class="kpi-detail">Terminal value = FY2030E EBITDA × ${BASE.evEbitdaMultiple}x (CVX's own current multiple)<br>
@@ -595,9 +596,9 @@ function renderDonut(val){
       <button data-method="exit" class="${method==='exit'?'active':''}">Exit multiple</button>
     </div>
     <div class="legend-item" style="margin-bottom:8px;"><span class="legend-swatch" style="background:${c1}"></span>
-      PV of explicit FCFF (2026–2030) — ${fmtM(pv)} (${p1.toFixed(0)}%)</div>
+      PV of explicit FCFF (2026–2030): ${fmtM(pv)} (${p1.toFixed(0)}%)</div>
     <div class="legend-item"><span class="legend-swatch" style="background:${c2}"></span>
-      PV of terminal value — ${fmtM(tv)} (${p2.toFixed(0)}%)</div>`;
+      PV of terminal value: ${fmtM(tv)} (${p2.toFixed(0)}%)</div>`;
   document.querySelectorAll('[data-method]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ state.donutMethod = btn.dataset.method; update(); });
   });
@@ -756,7 +757,7 @@ function renderGauges(){
   const el = document.getElementById('gaugeGrid');
   const items = [
     { label:'Beta (5Y vs S&P500)', value: BASE.beta, max: 2, threshold: 1, fmt: BASE.beta.toFixed(2),
-      status: BASE.beta<1?['good','Defensive — β < market']:['warning','More volatile than market'] },
+      status: BASE.beta<1?['good','Defensive (below market)']:['warning','More volatile than market'] },
     { label:'Debt / Equity', value: BASE.debtToEquity, max: 1, threshold: 0.5, fmt: BASE.debtToEquity.toFixed(2),
       status: BASE.debtToEquity<0.5?['good','Low leverage']:['warning','Elevated leverage'] },
     { label:'Current ratio', value: BASE.currentRatio, max: 3, threshold: 1.2, fmt: BASE.currentRatio.toFixed(2),
@@ -787,9 +788,9 @@ function renderCapStruct(){
     <text x="${cx}" y="${cy+5}" text-anchor="middle" class="donut-center-value" style="font-size:16px;">${(BASE.wacc*100).toFixed(2)}%</text>`;
   document.getElementById('capStructLegend').innerHTML = `
     <div class="legend-item" style="margin-bottom:8px;"><span class="legend-swatch" style="background:${c1}"></span>
-      Equity — ${p1.toFixed(1)}% weight, Ke ${(BASE.costOfEquity*100).toFixed(2)}%</div>
+      Equity: ${p1.toFixed(1)}% weight, Ke ${(BASE.costOfEquity*100).toFixed(2)}%</div>
     <div class="legend-item"><span class="legend-swatch" style="background:${c2}"></span>
-      Debt — ${p2.toFixed(1)}% weight, Kd(at) ${(BASE.afterTaxCostOfDebt*100).toFixed(2)}%</div>`;
+      Debt: ${p2.toFixed(1)}% weight, Kd(at) ${(BASE.afterTaxCostOfDebt*100).toFixed(2)}%</div>`;
 }
 
 /* =========================================================================
@@ -801,23 +802,23 @@ function renderMemo(){
       <table>
         <thead><tr><th style="text-align:left">Method</th><th>Implied price</th><th>vs current ($202.50)</th></tr></thead>
         <tbody>
-          <tr><td style="text-align:left">DCF — Gordon Growth (g = 2.5%)</td><td><b>$209.72</b></td><td>+3.6%</td></tr>
-          <tr><td style="text-align:left">DCF — Exit multiple (11.5x EBITDA)</td><td><b>$234.05</b></td><td>+15.6%</td></tr>
-          <tr><td style="text-align:left">Current market price</td><td>$202.50</td><td>—</td></tr>
+          <tr><td style="text-align:left">DCF, Gordon Growth (g = 2.5%)</td><td><b>$209.72</b></td><td>+3.6%</td></tr>
+          <tr><td style="text-align:left">DCF, Exit multiple (11.5x EBITDA)</td><td><b>$234.05</b></td><td>+15.6%</td></tr>
+          <tr><td style="text-align:left">Current market price</td><td>$202.50</td><td>n/a</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:12px;">Modestly undervalued on a base-case DCF, more meaningfully so if the market re-rates toward its own current EV/EBITDA multiple. The spread between methods implies the market's multiple already prices in some EBITDA recovery beyond a pure perpetuity-growth base case.</p>` },
+      <p style="margin-top:12px;">The base-case DCF suggests the stock is modestly undervalued, and more so if the market re-rates toward its own current EV/EBITDA multiple. The gap between the two methods suggests the market's multiple already prices in some EBITDA recovery beyond what a pure perpetuity-growth estimate captures.</p>` },
     { title:'Key assumptions', open:false, body:`
       <ul style="margin:0;padding-left:18px;">
-        <li><b>WACC 7.42%</b> — Cost of equity 7.80% (CAPM: risk-free 4.5% + β 0.66 × ERP 5.0%), after-tax cost of debt 4.35%, weighted 88.9% equity / 11.1% debt by market value.</li>
-        <li><b>Revenue</b> — normalized 2.0–3.0% p.a. growth off a 2025 base of $189.0B, deliberately not chasing the near-term Brent spike to ~$105/bbl (Strait of Hormuz disruption, EIA STEO mid-2026), which the EIA itself expects to normalize to ~$79/bbl by 2027.</li>
-        <li><b>EBITDA margin</b> — 22.0–22.5%, roughly in line with the 2025 realized margin (21.9%).</li>
-        <li><b>Terminal growth</b> — 2.5%, consistent with long-run nominal GDP growth for a mature, ex-growth integrated major.</li>
+        <li><b>WACC 7.42%.</b> Cost of equity 7.80% (CAPM: risk-free rate 4.5% + beta 0.66 x ERP 5.0%), after-tax cost of debt 4.35%, weighted 88.9% equity and 11.1% debt by market value.</li>
+        <li><b>Revenue.</b> Normalized growth of 2.0-3.0% a year off a 2025 base of $189.0B. This does not chase the near-term Brent spike to about $105/bbl (Strait of Hormuz disruption, EIA STEO mid-2026), which the EIA itself expects to normalize to about $79/bbl by 2027.</li>
+        <li><b>EBITDA margin.</b> 22.0-22.5%, roughly in line with the 2025 realized margin of 21.9%.</li>
+        <li><b>Terminal growth.</b> 2.5%, consistent with long-run nominal GDP growth for a mature, ex-growth integrated major.</li>
       </ul>` },
     { title:'Risks to the thesis', open:false, body:`
-      <p><span class="risk-tag high">High</span><b>Oil price normalization risk</b> — if Brent falls faster than the EIA's ~$79/bbl 2027 base case, 2026–2027 EBITDA margins could compress below the 22% assumption. Modeled directly as the Bear scenario.</p>
-      <p><span class="risk-tag med">Medium</span><b>Multiple compression</b> — the exit-multiple method assumes the market continues to award CVX today's 11.5x EV/EBITDA, elevated vs. the sector's historical 5–6x range. If the multiple reverts as EBITDA recovers, upside lands closer to the Gordon Growth estimate.</p>
-      <p><span class="risk-tag med">Medium</span><b>Capital allocation</b> — capex assumptions (9.0% of revenue) assume continuity of current capital discipline; a shift toward higher growth capex would reduce near-term FCFF.</p>` },
+      <p><span class="risk-tag high">High</span><b>Oil price normalization risk.</b> If Brent falls faster than the EIA's roughly $79/bbl 2027 base case, EBITDA margins in 2026-2027 could compress below the 22% assumption used here. This is modeled directly as the bear scenario.</p>
+      <p><span class="risk-tag med">Medium</span><b>Multiple compression.</b> The exit-multiple method assumes the market keeps awarding CVX its current 11.5x EV/EBITDA, which is high relative to the sector's historical range of 5-6x. If that multiple reverts as EBITDA recovers, the actual upside would land closer to the Gordon Growth estimate.</p>
+      <p><span class="risk-tag med">Medium</span><b>Capital allocation.</b> The capex assumption (9.0% of revenue) assumes current capital discipline continues. A shift toward higher growth capex would reduce near-term free cash flow.</p>` },
   ];
   document.getElementById('accordion').innerHTML = items.map((it,i)=>`
     <div class="accordion-item ${it.open?'open':''}" data-i="${i}">
@@ -850,6 +851,7 @@ document.querySelectorAll('.pill').forEach(pill=>{
     state.scenario = pill.dataset.scenario;
     state.tgr = SCENARIOS[state.scenario].defaultTgr;
     state.wacc = BASE.wacc;
+    document.getElementById('scenarioNote').textContent = SCENARIOS[state.scenario].note;
     document.getElementById('waccSlider').value = (state.wacc*100).toFixed(1);
     document.getElementById('tgrSlider').value = (state.tgr*100).toFixed(1);
     update();
@@ -875,7 +877,7 @@ document.getElementById('shareBtn').addEventListener('click', ()=>{
   navigator.clipboard?.writeText(url.toString()).catch(()=>{});
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.textContent = 'Link copied — scenario & inputs included';
+  toast.textContent = 'Link copied. Scenario and inputs are included.';
   document.body.appendChild(toast);
   requestAnimationFrame(()=> toast.classList.add('show'));
   setTimeout(()=>{ toast.classList.remove('show'); setTimeout(()=>toast.remove(), 300); }, 2200);
@@ -925,6 +927,7 @@ function update(){
 }
 
 loadFromUrl();
+document.getElementById('scenarioNote').textContent = SCENARIOS[state.scenario].note;
 renderMemo();
 update();
 </script>
